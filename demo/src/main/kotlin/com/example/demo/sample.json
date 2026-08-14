@@ -1,0 +1,25 @@
+{
+  "orderId": "ORD-2026-0001",
+  "customerId": 48213,
+  "totalCents": 999999999999,
+  "totalAmount": 129.95,
+  "isPaid": true,
+  "couponCode": null,
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "Austin",
+    "zip": "78701"
+  },
+  "tags": ["priority", "gift-wrap"],
+  "lineItems": [
+    { "sku": "ABC-1", "quantity": 2, "unitPrice": 19.99 },
+    { "sku": "XYZ-9", "quantity": 1, "unitPrice": 89.97 }
+  ],
+  "notifications": [],
+  "mixedShapeArray": [
+    { "kind": "email", "address": "user@example.com" },
+    { "kind": "sms", "phoneNumber": "+15551234567" }
+  ],
+  "firstName": "Ada",
+  "lastName": "Lovelace"
+}
