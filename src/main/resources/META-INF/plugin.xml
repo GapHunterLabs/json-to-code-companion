@@ -1,0 +1,51 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>dev.gaphunter.jsontocodecompanion</id>
+    <name>JSON to Code Companion</name>
+    <vendor>Gap Hunter Labs</vendor>
+    <description><![CDATA[
+        <p>Select a JSON object -- in a <code>.json</code> file, a
+        string literal, anywhere -- run "Generate Class from JSON",
+        and get a real Java POJO or Kotlin <code>data class</code>
+        with field types inferred from the actual JSON values,
+        including nested objects (their own nested/sibling classes)
+        and arrays (<code>List&lt;T&gt;</code>, typed from the first
+        element).</p>
+        <p>Ports a pattern that's genuinely popular elsewhere ("Paste
+        JSON as Code"-style tools, widely used across editors) with no
+        real equivalent anywhere in JetBrains Marketplace -- confirmed
+        by search before building, not assumed.</p>
+        <p>Never guesses past what the JSON actually shows: a
+        <code>null</code> value or an empty/mixed-type array becomes
+        an honest <code>Object</code>/<code>Any</code> field with a
+        <code>TODO</code> comment, not an invented type. A JSON key
+        that isn't a valid identifier gets sanitized into one, with the
+        original key preserved in a comment. Every generated file is
+        validated against an in-memory PSI copy before anything
+        touches disk.</p>
+        <p>100% local -- no network call, no account, no telemetry.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.json</depends>
+    <depends>com.intellij.java</depends>
+
+    <depends>org.jetbrains.kotlin</depends>
+    <extensions defaultExtensionNs="org.jetbrains.kotlin">
+        <supportsKotlinPluginMode supportsK2="true"/>
+    </extensions>
+
+    <actions>
+        <group id="JsonToCodeCompanion.Actions" text="JSON to Code Companion" popup="true">
+            <action id="JsonToCodeCompanion.GenerateClass"
+                    class="dev.gaphunter.jsontocodecompanion.actions.GenerateClassFromJsonAction"
+                    text="Generate Class from JSON"
+                    description="Generates a Java POJO or Kotlin data class from the selected JSON object, with field types inferred from the actual values"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="JSON to Code Companion" displayType="BALLOON"/>
+    </extensions>
+</idea-plugin>
