@@ -22,6 +22,7 @@ import dev.gaphunter.jsontocodecompanion.generate.CodeRenderer
 import dev.gaphunter.jsontocodecompanion.generate.InMemoryValidator
 import dev.gaphunter.jsontocodecompanion.infer.JsonTypeInferrer
 import dev.gaphunter.jsontocodecompanion.model.InferredType
+import dev.gaphunter.jsontocodecompanion.review.ReviewPrompt
 import org.jetbrains.kotlin.idea.KotlinLanguage
 
 /**
@@ -114,6 +115,8 @@ class GenerateClassFromJsonAction : AnAction() {
             val language = if (isJava) JavaLanguage.INSTANCE else KotlinLanguage.INSTANCE
             val psiFile: PsiFile = PsiFileFactory.getInstance(project).createFileFromText(fileName, language, text)
             directory.add(psiFile)
+            // Real success only -- never the "already exists" no-op above.
+            ReviewPrompt.recordHit(project)
             notify(project, "$fileName generated.", NotificationType.INFORMATION)
         })
     }
