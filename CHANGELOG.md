@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Added
+
+- Review/star CTA: after 5 successful class generations (never counted
+  for the "already exists" no-op or a failed safety check), a one-time
+  notification asks whether to rate the plugin on Marketplace, with a
+  permanent "Don't ask again" option.
+
 ## [0.1.0]
 
 ### Added
@@ -16,5 +25,6 @@
   honest `Object`/`Any` with a `TODO` comment instead.
 - In-memory PSI validation before every write.
 
-[Unreleased]: https://github.com/GapHunterLabs/json-to-code-companion/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/GapHunterLabs/json-to-code-companion/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/GapHunterLabs/json-to-code-companion/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/GapHunterLabs/json-to-code-companion/commits/0.1.0
