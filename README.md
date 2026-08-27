@@ -11,9 +11,9 @@ sibling classes) and arrays (`List<T>`, typed from the first element).
 Ports a pattern that's genuinely popular elsewhere ("Paste JSON as
 Code"-style tools, widely used across editors) with no real equivalent
 anywhere in JetBrains Marketplace (confirmed by search before building
-this, not assumed). A deliberate "port a proven concept" bet — see
-`CONSTITUTION.md` §1 for the documented-exception discipline this
-follows (same treatment as Refactor Simulator/Bean Copy Companion/
+this, not assumed). A deliberate "port a proven concept" bet — the
+same documented-exception discipline this follows (same treatment as
+Refactor Simulator/Bean Copy Companion/
 Turbo Log Companion/Change Case Companion).
 
 ## Why built this way

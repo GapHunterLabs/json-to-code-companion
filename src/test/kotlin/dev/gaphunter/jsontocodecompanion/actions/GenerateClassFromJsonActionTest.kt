@@ -8,8 +8,9 @@ import com.intellij.testFramework.fixtures.BasePlatformTestCase
 /**
  * Real `update()` path through a constructed
  * [com.intellij.openapi.actionSystem.DataContext] -- same technique as
- * every other Gap Hunter Labs plugin built the night SDK_GOTCHAS.md
- * §17 was written.
+ * every other Gap Hunter Labs plugin built since the real
+ * disabled-action bug this catches was first found (see Bean Copy
+ * Companion).
  */
 class GenerateClassFromJsonActionTest : BasePlatformTestCase() {
 
